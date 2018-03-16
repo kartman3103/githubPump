@@ -1,5 +1,5 @@
 package tests
-import org.apache.http.client.fluent.Request
+
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -23,25 +23,19 @@ class RequestTest {
 
     @Test
     fun testUser() {
-        val request = Request.Get("https://api.github.com/users/kartman3103")
-        val response = request.execute()
-
+        val response = requestProvider.provideGet("https://api.github.com/users/kartman3103")
         Assert.assertTrue(response.returnResponse().statusLine.statusCode == 200)
     }
 
     @Test
     fun testRepo() {
-        val request = Request.Get("https://api.github.com/repos/WonderfulFalcon/sportstat")
-        val response = request.execute()
-
+        val response = requestProvider.provideGet("https://api.github.com/repos/WonderfulFalcon/sportstat")
         Assert.assertTrue(response.returnResponse().statusLine.statusCode == 200)
     }
 
     @Test
     fun testIssues() {
-        val request = Request.Get("https://api.github.com/repos/WonderfulFalcon/sportstat/issues")
-        val response = request.execute()
-
+        val response = requestProvider.provideGet("https://api.github.com/repos/WonderfulFalcon/sportstat/issues")
         Assert.assertTrue(response.returnResponse().statusLine.statusCode == 200)
     }
 }
