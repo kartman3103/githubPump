@@ -23,7 +23,7 @@ class JsonParserTest {
 
         val repository : Repository = jsonParser.parseRepository(testString)
 
-        Assert.assertEquals(90038728, repository.id)
+        Assert.assertEquals(90038722, repository.id)
         Assert.assertEquals("sportstat", repository.name)
     }
 }
